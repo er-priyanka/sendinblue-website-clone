@@ -31,7 +31,7 @@ export const NavbarBefore = ()=>{
             padding={5}
             position="sticky"
             top="0"
-            z-index="100"
+            zIndex="100"
             bg="white"
         >
            

@@ -1,5 +1,6 @@
 
 import './App.css';
+import { Footer } from './Components/Footer';
 import { NavbarAfter } from './Components/NavbarAfter';
 import { NavbarBefore } from './Components/NavbarBefore';
 import { AllRoutes } from './Pages.jsx/AllRoutes';
@@ -11,6 +12,7 @@ function App() {
       <NavbarBefore />
       {/* <NavbarAfter /> */}
       <AllRoutes />
+      
     </div>
   );
 }
