@@ -3,12 +3,13 @@ import { Box, Button, Flex, Heading, HStack, Image, Spacer, Stack, Text } from "
 import { Feature } from "../Components/Feature";
 import { Footer } from "../Components/Footer";
 import { HomeMidView } from "../Components/HomeMidView";
+import { NavbarBefore } from "../Components/NavbarBefore";
 import styles from "./Home.module.css";
 
 export const Home = ()=>{
     return (
         <div>
-           
+           <NavbarBefore />
            <Flex  m='auto' mt="70px" width="80%" >
                 <Stack width='36%' spacing={10} >
                     <Heading size='4xl' align="left" >Prepare for takeoff.</Heading>

@@ -9,7 +9,7 @@ import { Home } from './Pages.jsx/Home';
 function App() {
   return (
     <div className="App">
-      <NavbarBefore />
+      {/* <NavbarBefore /> */}
       {/* <NavbarAfter /> */}
       <AllRoutes />
       
