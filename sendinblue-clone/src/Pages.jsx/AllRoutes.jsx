@@ -4,6 +4,7 @@ import { Home } from "./Home"
 import { Pricing } from "./Pricing"
 import { Login } from "./Login"
 import { Signup } from "./Signup"
+import { PrivateRoute } from "../Components/PrivateRoute"
 
 export const AllRoutes = ()=>{
     return (
@@ -11,7 +12,9 @@ export const AllRoutes = ()=>{
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/pricing" element={<Pricing />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={
+                <Login />
+            } />
             <Route path="/signup" element={<Signup />} />
         </Routes>
     )

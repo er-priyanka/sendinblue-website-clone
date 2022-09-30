@@ -1,0 +1,43 @@
+{
+  "signup": [
+    {
+      "email": "priyanka@gmail.com",
+      "password": "priyanka",
+      "first_name": "priyanka",
+      "last_name": "shahane",
+      "company_name": "masai",
+      "website": "masai.com",
+      "address": "maharashtra",
+      "zipcode": "422101",
+      "city": "Nashik",
+      "country": "India",
+      "team": "0-1 employee",
+      "contacts": "1-300",
+      "online_selling": "",
+      "plan": "",
+      "id": 1
+    }
+    
+  ],
+
+  
+  "login": [
+    {
+      "email": "priyanka@gmail.com",
+      "password": "priyanka",
+      "first_name": "priyanka",
+      "last_name": "shahane",
+      "company_name": "masai",
+      "website": "masai.com",
+      "address": "maharashtra",
+      "zipcode": "422101",
+      "city": "Nashik",
+      "country": "India",
+      "team": "0-1 employee",
+      "contacts": "1-300",
+      "online_selling": "",
+      "plan": "",
+      "id": 1
+    }
+  ]
+}

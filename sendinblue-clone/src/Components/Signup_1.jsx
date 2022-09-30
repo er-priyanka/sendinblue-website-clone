@@ -1,16 +1,17 @@
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import {Box, Icon, Button, Divider, Flex, FormControl, FormErrorMessage, FormHelperText, FormLabel, Heading, Input, InputGroup, InputRightElement, Link, Stack, Text, Image} from "@chakra-ui/react";
 import { useState } from "react";
-import {BsApple, BsDot} from "react-icons/bs";
+import {BsApple} from "react-icons/bs";
 import {FcGoogle} from "react-icons/fc";
 
 
-export const Signup_1 = ()=>{
+export const Signup_1 = ({user, handleChange, handlePart})=>{
     const [show, setShow] = useState(false);
 
     const handleShowBtn = ()=>{
         setShow(!show);
     }
+
 
 
     return (
@@ -41,14 +42,21 @@ export const Signup_1 = ()=>{
 
                     <FormControl isRequired>
                         <FormLabel>Email</FormLabel>
-                        <Input placeholder="Email" />
+                        <Input 
+                        value={user.email} 
+                        name="email" 
+                        onChange={handleChange} 
+                        placeholder="Email" />
                         <FormErrorMessage>Email is required.</FormErrorMessage>
                     </FormControl>
 
                     <FormControl isRequired>
                         <FormLabel>Password</FormLabel>
                         <InputGroup>
-                            <Input type={show?"text":"password"} placeholder="Enter Password" />
+                            <Input 
+                            value={user.password} 
+                            onChange={handleChange} 
+                            name="password" type={show?"text":"password"} placeholder="Enter Password" />
                             <InputRightElement>
                                 <Button onClick={handleShowBtn}>
                                     {
@@ -61,7 +69,7 @@ export const Signup_1 = ()=>{
                         <FormHelperText align="left">At least 8 character long</FormHelperText>
                     </FormControl>
 
-                    <Button colorScheme="blue">Create an account</Button>
+                    <Button disabled={user.email=="" || (user.password.length<8)} onClick={handlePart} colorScheme="blue">Create an account</Button>
 
 
                     <Divider/>

@@ -1,14 +1,12 @@
-import { ViewIcon, ViewOffIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import {Box, Icon, Button, Divider, Flex, FormControl, FormErrorMessage, FormHelperText, FormLabel, Heading, Input, InputGroup, InputRightElement, Link, Stack, Text, Image, Grid, GridItem, Select} from "@chakra-ui/react";
-import { useState } from "react";
-import {BsApple, BsDot} from "react-icons/bs";
-import {FcGoogle} from "react-icons/fc";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import {Box,  Button,  Flex, FormControl, FormErrorMessage,  FormLabel, Heading, Input, Stack, Text, Image, Grid, GridItem, Select} from "@chakra-ui/react";
 
 
-export const Signup_3 = ()=>{
+
+export const Signup_3 = ({user, handleChange, handlePart})=>{
     
-
-
+    const { address, zipcode, city, country} = user;
+    
     return (
         <Flex h="100vh" overflowY="auto" >
             <Box w="70%" py={10} px={8} >
@@ -44,7 +42,7 @@ export const Signup_3 = ()=>{
                         <GridItem colSpan={2}>
                             <FormControl isRequired>
                                 <FormLabel>Address</FormLabel>
-                                <Input type="text" />
+                                <Input onChange={handleChange} name="address" type="text" />
                                 <FormErrorMessage>Address is required.</FormErrorMessage>
                             </FormControl>
                         </GridItem>
@@ -52,7 +50,7 @@ export const Signup_3 = ()=>{
                         <GridItem>
                             <FormControl isRequired>
                                 <FormLabel>Zipcode</FormLabel>
-                                <Input type="text"  />
+                                <Input onChange={handleChange} name="zipcode" type="text"  />
                                 <FormErrorMessage>Zipcode is required.</FormErrorMessage>
                             </FormControl>
                         </GridItem>
@@ -60,7 +58,7 @@ export const Signup_3 = ()=>{
                         <GridItem >
                             <FormControl isRequired>
                                 <FormLabel>City</FormLabel>
-                                <Input type="text" />
+                                <Input onChange={handleChange} name="city" type="text" />
                                 <FormErrorMessage>City is required.</FormErrorMessage>
                             </FormControl>
                         </GridItem>
@@ -68,7 +66,7 @@ export const Signup_3 = ()=>{
                         <GridItem >
                             <FormControl isRequired>
                                 <FormLabel>Country</FormLabel>
-                                <Select placeholder='Select'>
+                                <Select name="country" onChange={handleChange} placeholder='Select'>
                                     
                                     <option value='India'>India</option>
                                     <option value='Japan'>Japan</option>
@@ -88,7 +86,10 @@ export const Signup_3 = ()=>{
                         </GridItem>
                     </Grid>
                     
-                    <Button w="100px" colorScheme="blue">Next</Button>
+                    <Button w="100px" colorScheme="blue"
+                    disabled={address=="" || zipcode=="" || city=="" ||country==""}
+                    onClick={handlePart}
+                    >Next</Button>
 
                 </Stack>
 
