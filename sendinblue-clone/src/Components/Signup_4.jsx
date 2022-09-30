@@ -1,17 +1,28 @@
-import { ViewIcon, ViewOffIcon, ArrowBackIcon } from "@chakra-ui/icons";
-import {Box, Icon, Button, Divider, Flex, FormControl, FormErrorMessage, FormHelperText, FormLabel, Heading, Input, InputGroup, InputRightElement, Link, Stack, Text, Image, Grid, GridItem, Select, RadioGroup, Radio} from "@chakra-ui/react";
-import { useState } from "react";
-import {BsApple, BsDot} from "react-icons/bs";
-import {FcGoogle} from "react-icons/fc";
+import {  ArrowBackIcon } from "@chakra-ui/icons";
+import {Box,  Button, Flex, FormControl, FormErrorMessage, FormHelperText, FormLabel, Heading, Input, InputGroup, InputRightElement, Link, Stack, Text, Image, Grid, GridItem, Select, RadioGroup, Radio} from "@chakra-ui/react";
+import { useContext, useState } from "react";
+import {useNavigate} from "react-router-dom";
+import { authContext } from "../Context/AuthContext";
 
 
-export const Signup_4 = ()=>{
-    const [show, setShow] = useState(false);
 
-    const handleShowBtn = ()=>{
-        setShow(!show);
-    }
+export const Signup_4 = ({user, handleChange})=>{
+  const navigate = useNavigate();
+  const [selling, setSelling] = useState("no")
+  const {team, contacts} = user;
+  const {handleSignup} = useContext(authContext);
 
+  const handleSubmit = ()=>{
+    alert("Sucessfully created your account!!");
+    navigate("/dashboard");
+    handleSignup(user);
+  }
+
+  const setOnlineSelling = (e)=>{
+    user.online_selling = e;
+    // console.log(user.online_selling)
+    setSelling(e);
+  }
 
     return (
         <Flex h="100vh" overflowY="auto" >
@@ -48,7 +59,7 @@ export const Signup_4 = ()=>{
                         <GridItem >
                             <FormControl isRequired>
                                 <FormLabel>How many people are in your team?</FormLabel>
-                                <Select placeholder="Select your company size">
+                                <Select name="team" onChange={handleChange} placeholder="Select your company size">
                                     <option value="0-1 employee">0-1 employee</option>
                                     <option value="2-10 employees">2-10 employees</option>
                                     <option value="11-50 employees">11-50 employees</option>
@@ -63,7 +74,7 @@ export const Signup_4 = ()=>{
                         <GridItem>
                             <FormControl isRequired>
                                 <FormLabel>How many contacts do you have?</FormLabel>
-                                <Select placeholder="Select your company size">
+                                <Select name="contacts" onChange={handleChange} placeholder="Select your company size">
                                     <option value="1-300">1-300</option>
                                     <option value="301-2k">301-2k</option>
                                     <option value="2001-5k">2001-5k</option>
@@ -79,7 +90,7 @@ export const Signup_4 = ()=>{
                         <GridItem >
                            <FormControl>
                                 <FormLabel>Do you sell online?</FormLabel>
-                                <RadioGroup>
+                                <RadioGroup name="online_selling" onChange={setOnlineSelling} value={selling}>
                                     <Stack spacing={10} direction='row'>
                                         <Radio value='yes'>yes</Radio>
                                         <Radio value='no'>no</Radio>
@@ -92,7 +103,10 @@ export const Signup_4 = ()=>{
                         
                     </Grid>
                     
-                    <Button w="100px" colorScheme="blue">Next</Button>
+                    <Button w="100px" colorScheme="blue"
+                    disabled={team=="" || contacts==""}
+                    onClick={handleSubmit}
+                    >Submit</Button>
 
                 </Stack>
 

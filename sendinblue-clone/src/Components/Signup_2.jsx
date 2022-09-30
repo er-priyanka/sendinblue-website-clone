@@ -5,13 +5,14 @@ import {BsApple, BsDot} from "react-icons/bs";
 import {FcGoogle} from "react-icons/fc";
 
 
-export const Signup_2 = ()=>{
+export const Signup_2 = ({user, handleChange, handlePart})=>{
     const [show, setShow] = useState(false);
 
     const handleShowBtn = ()=>{
         setShow(!show);
     }
 
+    const {first_name, last_name, company_name, website} = user;
 
     return (
         <Flex h="100vh" >
@@ -44,7 +45,7 @@ export const Signup_2 = ()=>{
                         <GridItem>
                             <FormControl isRequired>
                                 <FormLabel>First name</FormLabel>
-                                <Input type="text" />
+                                <Input onChange={handleChange} name="first_name" type="text" />
                                 <FormErrorMessage>First name is required.</FormErrorMessage>
                             </FormControl>
                         </GridItem>
@@ -52,7 +53,7 @@ export const Signup_2 = ()=>{
                         <GridItem>
                             <FormControl isRequired>
                                 <FormLabel>Last name</FormLabel>
-                                <Input type="text"  />
+                                <Input onChange={handleChange} name="last_name" type="text"  />
                                 <FormErrorMessage>Last name is required.</FormErrorMessage>
                             </FormControl>
                         </GridItem>
@@ -60,7 +61,7 @@ export const Signup_2 = ()=>{
                         <GridItem colSpan={2}>
                             <FormControl isRequired>
                                 <FormLabel>Company name</FormLabel>
-                                <Input type="text" />
+                                <Input onChange={handleChange} name="company_name" type="text" />
                                 <FormErrorMessage>Company name is required.</FormErrorMessage>
                             </FormControl>
                         </GridItem>
@@ -68,13 +69,16 @@ export const Signup_2 = ()=>{
                         <GridItem colSpan={2}>
                             <FormControl isRequired>
                                 <FormLabel>Website</FormLabel>
-                                <Input type="url" />
+                                <Input onChange={handleChange} name="website" type="url" />
                                 {/* <FormErrorMessage>Email is required.</FormErrorMessage> */}
                             </FormControl>
                         </GridItem>
                     </Grid>
                     
-                    <Button w="100px" colorScheme="blue">Next</Button>
+                    <Button w="100px" colorScheme="blue"
+                    disabled={first_name=="" || last_name=="" || company_name =="" || website==""}
+                    onClick={handlePart}
+                    >Next</Button>
 
                 </Stack>
 

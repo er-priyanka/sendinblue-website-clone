@@ -1,19 +1,47 @@
 import {Box, Button, Center, Divider, Flex, FormControl, FormLabel, Heading, HStack, Icon, Image, Input, InputGroup, InputRightAddon, InputRightElement, Link, Stack, Text} from "@chakra-ui/react";
 
 import {ViewIcon, ViewOffIcon} from "@chakra-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {BsApple, BsDot} from "react-icons/bs";
 import {FcGoogle} from "react-icons/fc";
+import { useContext } from "react";
+import { authContext } from "../Context/AuthContext";
+import {Navigate, useNavigate} from "react-router-dom";
 
+
+
+const ini = {
+    email:"",
+    password:""
+}
 
 
 export const Login = ()=>{
     const [show, setShow] = useState(false);
+    const [inputUser, setInputUser] = useState(ini);
+    const {isAuth, handleLogin} = useContext(authContext);
+    const navigate = useNavigate();
+
 
     const handleShowBtn = ()=>{
         setShow(!show);
     }
 
+
+    const handleChange = (e)=>{
+        const {name, value} = e.target;
+
+        setInputUser({...inputUser, [name]:value});
+        // console.log(inputUser);
+    }
+
+    const authenticate = ()=>{
+        handleLogin(inputUser);
+        if(!isAuth)
+            navigate("/dashboard");
+    }
+    
+    
     return (
         <Box bg="#044A75" 
         // h="100vh" 
@@ -33,13 +61,13 @@ export const Login = ()=>{
 
                 <FormControl>
                     <FormLabel>Email</FormLabel>
-                    <Input type='email' placeholder="Enter Email" />
+                    <Input name="email" onChange={handleChange} type='email' placeholder="Enter Email" />
                 </FormControl>
 
                 <FormControl>
                     <FormLabel>Password</FormLabel>
                     <InputGroup>
-                        <Input type={show?"text":"password"} placeholder="Enter Password" />
+                        <Input name="password" onChange={handleChange} type={show?"text":"password"} placeholder="Enter Password" />
                         <InputRightElement>
                             <Button onClick={handleShowBtn}>
                                 {
@@ -52,7 +80,7 @@ export const Login = ()=>{
                 </FormControl>
                 
 
-                <Button colorScheme="blue">Log in</Button>
+                <Button onClick={authenticate} colorScheme="blue">Log in</Button>
                 
                 
                 <Divider/>
@@ -70,7 +98,7 @@ export const Login = ()=>{
             </Stack>
             
             <Center p={2}  align="center" color="white" gap={3} >
-                <Link _hover={{color:"blue.400", textDecoration:"underline"}}>Create an account</Link>
+                <Link href="/signup" _hover={{color:"blue.400", textDecoration:"underline"}}>Create an account</Link>
                 <Icon as={BsDot}/>
                 <Link _hover={{color:"blue.400", textDecoration:"underline"}}>I forget my password</Link>
             </Center>
