@@ -16,11 +16,25 @@
       "online_selling": "",
       "plan": "",
       "id": 1
+    },
+    {
+      "email": "priyanka@gmail.com",
+      "password": "priyanka",
+      "first_name": "Priyanka",
+      "last_name": "Shahane",
+      "company_name": "Masai",
+      "website": "masai.com",
+      "address": "Maharashtra",
+      "zipcode": "421771",
+      "city": "Nashik",
+      "country": "India",
+      "team": "2-10 employees",
+      "contacts": "2001-5k",
+      "online_selling": "yes",
+      "plan": "",
+      "id": 2
     }
-    
   ],
-
-  
   "login": [
     {
       "email": "priyanka@gmail.com",
@@ -38,6 +52,24 @@
       "online_selling": "",
       "plan": "",
       "id": 1
+    }
+  ],
+  "emails": [
+    {
+      "campaign_name": "Masai",
+      "from": "priyanka@gmail.com",
+      "to": "abc@gmail.com",
+      "subject": "Project submission",
+      "body": "Hey there,\n,bfdsjhbf\nthank you\n",
+      "id": 1
+    },
+    {
+      "campaign_name": "Datamatics ltd",
+      "from": "priyanka@gmail.com",
+      "to": "abc@gmail.com",
+      "subject": "Project submission",
+      "body": "Hello,\njdhdhahihiuh\nThank you,\nRegards\nAbc",
+      "id": 2
     }
   ]
 }

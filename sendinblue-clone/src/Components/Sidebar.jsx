@@ -3,6 +3,7 @@ import { AiFillDashboard, AiFillSetting } from "react-icons/ai";
 import {MdEmail} from "react-icons/md";
 import {GoGraph} from "react-icons/go";
 import {RiLayout5Fill} from "react-icons/ri"
+import { GrAnalytics } from "react-icons/gr";
 
 
 
@@ -15,7 +16,7 @@ const listItems = [
 ]
 
 
-export const Sidebar = ()=>{
+export const Sidebar = ({view, handleView})=>{
     return (
         <Stack
         // border="1px"
@@ -34,9 +35,12 @@ export const Sidebar = ()=>{
                         padding={3}
                         _hover={
                             {
-                                bg:"gray.100"
+                                bg:"gray.100",
+                                color:"blackAlpha.800"
                             }
                         }
+                        color={item.title === view?"blue.400" :"gray.500"}
+                        onClick={()=>handleView(item.title)}
                         >
                             <ListIcon as={item.logo} />
                             {item.title}

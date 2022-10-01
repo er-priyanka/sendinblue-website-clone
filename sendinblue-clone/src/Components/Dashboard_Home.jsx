@@ -5,7 +5,7 @@ import {AiFillCheckCircle} from "react-icons/ai";
 import {BsHandIndexThumb} from "react-icons/bs";
 import {BiPlusMedical} from "react-icons/bi";
 import {QuestionOutlineIcon} from "@chakra-ui/icons";
-
+import {useNavigate} from "react-router-dom";
 
 
 const contents = [
@@ -17,6 +17,12 @@ const contents = [
 
 
 export const Dashboard_Home = ()=>{
+    const navigate = useNavigate();
+
+    const handleClick = ()=>{
+        navigate('/dashboard/email')
+    }
+
     return (
         <Box  w="75%" m="auto" >
 
@@ -128,7 +134,7 @@ export const Dashboard_Home = ()=>{
                     <Text fontSize="1.2rem" as="i" color="gray.400">No campaign found</Text>
                     
                     <Center>
-                        <Button fontSize="0.9rem" maxW="fit-content" colorScheme='blue' gap={1}>
+                        <Button onClick={handleClick} fontSize="0.9rem" maxW="fit-content" colorScheme='blue' gap={1}>
                             <Icon as={BiPlusMedical} /> Create a New Campaign
                         </Button>
                     </Center>

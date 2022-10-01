@@ -11,10 +11,39 @@ import {MdLogout} from "react-icons/md";
 import {GiWorld} from "react-icons/gi";
 import {IoShieldCheckmark} from "react-icons/io5";
 import {GrDocumentText} from "react-icons/gr"
+import { useContext, useEffect, useState } from "react";
+import { authContext } from "../Context/AuthContext";
+import {useNavigate} from "react-router-dom";
 
 
+const getUser = ()=>{
+    return fetch(`http://localhost:8080/login`).then(res=>res.json());
+}
 
 export const NavbarAfter = ()=>{
+    const [user, setUser] = useState(null);
+    const {logout} = useContext(authContext);
+    const navigate = useNavigate();
+    
+  
+    useEffect(()=>{
+        getUser()
+        .then(res=>{
+            
+            setUser(res[0]);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }, [user])
+
+
+    const handleLogout = ()=>{
+        logout();
+        navigate('/login');
+    }
+
+
     const hoverStyle = {
         color:"white",
         textDecoration:"none"
@@ -69,17 +98,17 @@ export const NavbarAfter = ()=>{
                                 color:'white'
                             }}
                             >
-                                Masai School
+                                {user?.company_name}
                             </MenuButton>
 
                             <MenuList color="black">
-                                <MenuGroup title="priyanka@gmail.com">
+                                <MenuGroup title={user?.email}>
                                     <MenuItem icon={<FaUser />}>My Profile</MenuItem>
                                 </MenuGroup>
                                 
                                 <MenuDivider />
 
-                                <MenuGroup title = "Masai School">
+                                <MenuGroup title = {user?.company_name}>
                                     <MenuItem icon={<FaCreditCard />}>My Plan</MenuItem>
                                     <MenuItem icon={<FaPlug />}>Plugins</MenuItem>
                                     <MenuItem icon={<FaTelegramPlane />}>Senders & IP</MenuItem>
@@ -92,7 +121,7 @@ export const NavbarAfter = ()=>{
 
                                 <MenuGroup>
                                     <MenuItem icon={<GiWorld />}>Select your language</MenuItem>
-                                    <MenuItem icon={<MdLogout />}>Log out</MenuItem>
+                                    <MenuItem onClick={handleLogout} icon={<MdLogout />}>Log out</MenuItem>
                                 </MenuGroup>
                                 
                             </MenuList>

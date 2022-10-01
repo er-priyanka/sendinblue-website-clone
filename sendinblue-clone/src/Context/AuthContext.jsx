@@ -1,5 +1,7 @@
 import { createContext, useState } from "react";
 import { addLogin, deleteLoginData, getLoginUser, postData, getSignupUser } from "./AuthApi";
+
+
 export const authContext = createContext();
 
 
@@ -70,19 +72,25 @@ export const AuthContextProvider = ({children})=>{
                 setIsAuth(true);
                 alert("Login Successfully!");
             }
-            else{
-                setIsAuth(false);
-                alert("Login Failed!!");
-            }
+           
         })
         .catch(err=>{
             console.log(err);
+            setIsAuth(false);
+            alert("Login Failed!!");
         })
         
     }
 
+
+
+    const logout = ()=>{
+        deleteLoginData();
+        setRegisteredUser(null);
+    }
+
     return (
-        <authContext.Provider value={{isAuth, registeredUser, handleSignup, handleLogin}}>
+        <authContext.Provider value={{isAuth, registeredUser, handleSignup, handleLogin, logout}}>
             {children}
         </authContext.Provider>
     )
