@@ -11,7 +11,11 @@ import { ShowEmail } from "../Components/ShowEmail"
 export const AllRoutes = ()=>{
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={
+                <PrivateRoute>
+                    <Home />
+                </PrivateRoute>
+            } />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/login" element={
