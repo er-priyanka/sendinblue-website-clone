@@ -50,7 +50,7 @@ export const Signup_3 = ({user, handleChange, handlePart})=>{
                         <GridItem>
                             <FormControl isRequired>
                                 <FormLabel>Zipcode</FormLabel>
-                                <Input onChange={handleChange} name="zipcode" type="text"  />
+                                <Input type="number" onChange={handleChange} name="zipcode"   />
                                 <FormErrorMessage>Zipcode is required.</FormErrorMessage>
                             </FormControl>
                         </GridItem>

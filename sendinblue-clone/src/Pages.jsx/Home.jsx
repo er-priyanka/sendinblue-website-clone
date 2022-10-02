@@ -6,6 +6,7 @@ import { HomeMidView } from "../Components/HomeMidView";
 import { NavbarBefore } from "../Components/NavbarBefore";
 import styles from "./Home.module.css";
 
+import image from "../Images/home_img_1.jpg"
 export const Home = ()=>{
     return (
         <div>
@@ -27,7 +28,9 @@ export const Home = ()=>{
                     >Take a free test drive!</Button>
                 </Stack>
                 <Spacer />
-                <Box border="1px" width="56%"></Box>
+                <Box  width="56%">
+                    <Image opacity={1} alt="Home Image" src={image} />
+                </Box>
            </Flex> 
 
 

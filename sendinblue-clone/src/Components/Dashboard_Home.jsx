@@ -30,7 +30,7 @@ export const Dashboard_Home = ()=>{
             <Divider color="blue.300" />
 
             <Box mt="20px" bg="#F9FAFC" padding="6">
-                <Flex >
+                <Flex direction={{base:"column", md:"row"}} >
                     <Box textAlign="left" lineHeight="45px">
                         <Heading color="blue.900" fontSize="2xl">Get started with email campaigns</Heading>
                         <Text fontSize="1.1rem">Follow these first steps to send your first email campaign.</Text>
@@ -50,7 +50,7 @@ export const Dashboard_Home = ()=>{
 
                 </Flex>
 
-                <Flex  gap={9}>
+                <Flex  gap={9} direction={{base:"column", md:"row"}}>
                     <Center display="flex" flexDirection="column">
                         <CircularProgress size="150px" value={33} color="blue.400">
                             <CircularProgressLabel>33%</CircularProgressLabel>
@@ -59,7 +59,7 @@ export const Dashboard_Home = ()=>{
                     </Center>
                     <Box fontSize="1.1rem" w="80%">
                         <Flex gap="4" padding="13px" color="gray">
-                            <Center  boxSize='12' borderRadius="50">
+                            <Center boxSize='12' borderRadius="50">
                                 <Icon boxSize='12' color="green.500" as={AiFillCheckCircle} />
                             </Center>
                             
@@ -79,8 +79,11 @@ export const Dashboard_Home = ()=>{
                             bg:"blackAlpha.50"
                         }}
                         >
-                            <Center border='1px' borderColor="blue.900" boxSize='12' borderRadius="50">
-                                <Icon boxSize='5' color="blue.700" as={FaUsers} />
+                            <Center border='1px' borderColor="blue.900" 
+                            boxSize='12'
+                            borderRadius="50">
+                                <Icon boxSize='5' 
+                                 color="blue.700" as={FaUsers} />
                             </Center>
                             
                             <Box textAlign='left' lineHeight={7}>
@@ -112,10 +115,10 @@ export const Dashboard_Home = ()=>{
                 </Flex>
             </Box>
 
-                <Flex mt="20px"  justifyContent="space-between">
+                <Flex mt="20px" gap="20px"  justifyContent="space-between" direction={{base:'column', md:"row"}}>
                     {
                         contents.map((item,i)=>(
-                            <Stack textAlign="center" w="23%" key={i} border="1px" borderColor="gray.300" p="20px">
+                            <Stack textAlign="center" w={{base:"80%", md:"23%"}} m="auto" key={i} border="1px" borderColor="gray.300" p="20px">
                                 <Icon fontSize="30"  m="auto" color={item.color} as={item.icon} />
                                 <Heading color={item.color}>{item.count}</Heading>
                                 <Text>{item.desc}</Text>
@@ -127,8 +130,8 @@ export const Dashboard_Home = ()=>{
 
                 <Stack border="1px" 
                 borderColor="gray.300" 
-                w="49%" mt="30px" p="20px"
-                spacing="6"
+                w={{base:'80%', md:"49%"}} m={{base:"auto"}} mt="30px" p="20px"
+                spacing="6" 
                 >
                     <Heading fontSize="2xl" textAlign='left'>Email Campaigns</Heading>
                     <Text fontSize="1.2rem" as="i" color="gray.400">No campaign found</Text>

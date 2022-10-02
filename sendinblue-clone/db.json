@@ -33,27 +33,26 @@
       "online_selling": "yes",
       "plan": "",
       "id": 2
-    }
-  ],
-  "login": [
+    },
     {
-      "email": "priyanka@gmail.com",
-      "password": "priyanka",
-      "first_name": "priyanka",
-      "last_name": "shahane",
+      "email": "abc@gmail.com",
+      "password": "abcdefgh",
+      "first_name": "Abc",
+      "last_name": "abc",
       "company_name": "masai",
-      "website": "masai.com",
-      "address": "maharashtra",
-      "zipcode": "422101",
-      "city": "Nashik",
-      "country": "India",
-      "team": "0-1 employee",
-      "contacts": "1-300",
-      "online_selling": "",
+      "website": "abs.com",
+      "address": "Maharashtra",
+      "zipcode": "523422",
+      "city": "Pune",
+      "country": "Canada",
+      "team": "51-250 employees",
+      "contacts": "More than 100k",
+      "online_selling": "no",
       "plan": "",
-      "id": 1
+      "id": 3
     }
   ],
+  "login": [],
   "emails": [
     {
       "campaign_name": "Masai",
@@ -70,6 +69,22 @@
       "subject": "Project submission",
       "body": "Hello,\njdhdhahihiuh\nThank you,\nRegards\nAbc",
       "id": 2
+    },
+    {
+      "campaign_name": "Reliance ltd",
+      "from": "priyanka@gmail.com",
+      "to": "abc@gmail.com",
+      "subject": "Project submission",
+      "body": "Hey There,\nI m here because of you ",
+      "id": 3
+    },
+    {
+      "campaign_name": "Amazon",
+      "from": "xyz@gmail.com",
+      "to": "abc@gmail.com",
+      "subject": "Last week work",
+      "body": "Hello Sir,\njhjhhdhfdhjdhjfas\ngdfvhdaaaaaaaashshjajkfjhg\nnnbhjabhfjhd\nkdjjhgh\n\nThanking you,\nRegards\nAmazon Team.",
+      "id": 4
     }
   ]
 }

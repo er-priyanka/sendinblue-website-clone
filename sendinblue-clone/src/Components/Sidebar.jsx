@@ -24,7 +24,7 @@ export const Sidebar = ({view, handleView})=>{
         // p="25px"
         textAlign="left"
         spacing={5}
-        w="15%"
+        w={{base:"40%", md:"15%"}}
         bg="gray.50"
         >
             <List p="10px" fontSize="1.1rem" color="gray.500">
